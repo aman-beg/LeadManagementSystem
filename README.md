@@ -1,66 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Manager - README</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            max-width: 800px;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        img {
-            max-width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 5px;
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        ol {
-            margin-left: 20px;
-        }
-        blockquote {
-            border-left: 4px solid #ddd;
-            padding-left: 15px;
-            color: #555;
-            margin: 20px 0;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #ddd;
-            margin: 40px 0;
-        }
-    </style>
-</head>
-<body>
-
 <h1>Lead Manager Application</h1>
 
 <p>The <strong>Lead Manager</strong> is a web application built with <a href="https://laravel.com/" target="_blank">Laravel</a> and <a href="https://laravel-livewire.com/" target="_blank">Livewire</a> that allows users to efficiently manage leads by creating, updating, viewing, and deleting lead information. The application utilizes real-time validation and dynamic user interfaces for a seamless user experience.</p>
@@ -75,8 +12,6 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
 </ol>
 
@@ -338,48 +273,16 @@ EXIT;
 
 <hr>
 
-<h2 id="contributing">7. Contributing</h2>
-
-<p>Contributions are welcome! Follow these steps to contribute to the project:</p>
-
-<ol>
-    <li>Fork the repository.</li>
-    <li>Create a new branch for your feature or bugfix:
-        <pre><code>git checkout -b feature/your-feature-name</code></pre>
-    </li>
-    <li>Commit your changes:
-        <pre><code>git commit -m "Description of your changes"</code></pre>
-    </li>
-    <li>Push to your forked repository:
-        <pre><code>git push origin feature/your-feature-name</code></pre>
-    </li>
-    <li>Create a Pull Request detailing your changes.</li>
-</ol>
-
-<p>Please ensure your code follows the project's coding standards and includes relevant tests where applicable.</p>
-
-<hr>
-
-<h2 id="license">8. License</h2>
-
-<p>This project is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>.</p>
-
-<hr>
-
-<h2 id="contact">9. Contact</h2>
+<h2 id="contact">7. Contact</h2>
 
 <p>For any inquiries or support, feel free to contact:</p>
 
 <ul>
-    <li><strong>Name:</strong> Your Name</li>
-    <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-    <li><strong>Website:</strong> <a href="https://yourwebsite.com" target="_blank">yourwebsite.com</a></li>
+    <li><strong>Name:</strong> Aman Beg</li>
+    <li><strong>Email:</strong> <a href="mailto:am2835112@gmail.com">am2835112@gmail.com</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/aman-beg" target="_blank">github.com/aman-beg</a></li>
 </ul>
 
 <hr>
 
 <p>Thank you for using the Lead Manager Application! We hope it enhances your lead management process.</p>
-
-</body>
-</html>
