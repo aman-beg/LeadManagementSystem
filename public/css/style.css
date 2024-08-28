@@ -1,11 +1,18 @@
 nav{
     color: #ddd;
 }
+main{
+    padding-inline: 10px;
+}
 form{
     max-width: 700px;
     margin-inline: auto;
     margin-block: 20px;
 }
+.btn {
+    margin-top: 10px;
+}
+/* 
 .form-group {
     margin-bottom: 15px;
 }
@@ -16,10 +23,7 @@ form{
     box-sizing: border-box;
 }
 
-.btn {
-    padding: 10px 20px;
-    margin-top: 10px;
-}
+
 
 .table {
     width: 100%;
@@ -62,7 +66,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin:10px;
 }
 .filter-box{
     max-width: 300px;
@@ -70,9 +74,15 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin:10px;
 }
 .text-danger{
     color: red;
     font-size: 14px;
+} */
+.search-box,.filter-box{
+    float:right;
+    display: flex;
+    align-items:center;
+    justify-content: center;
 }

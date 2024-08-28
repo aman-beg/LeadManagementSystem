@@ -2,18 +2,18 @@
 
 namespace App\Livewire;
 
+use Illuminate\Validation\ValidationException;
+use Exception;
 use Livewire\Component;
-use Livewire\Attributes\On;
 use App\Models\Lead;
 
 class LeadManager extends Component
 {
-    public $leads,$name,$email,$phone,$message,$status,$lead_id,$filterTerm;
-    public $updateMode = false;
+    public $name,$email,$phone,$message,$status,$lead_id,$filterTerm,$lead;
     protected $rules = [
-        'name'=>'required',
-        'email'=>'nullable|email',
-        'phone'=>'required',
+        'name'=>'required|alpha|max:255',
+        'email'=>'nullable|email|max:255',
+        'phone'=>'required|regex:/^(\+?\d{1,3})?(\s?\d+){1,19}$/',
         'message'=>'nullable',
         'status'=>'required|in:new,contacted,in progress,converted,closed',
     ];
@@ -26,39 +26,10 @@ class LeadManager extends Component
     {
         $this->status = 'new';
     }
-    #[On('searchUpdated')]
-    public function addSearchedLeads($searchTerm)
-    {
-        // getting all from DB by default
-        $statusFilteredLeads = Lead::all();
-        // if user has selected filter so get filterd leads from DB
-        if(!$this->filterTerm == '') 
-        {
-            $statusFilteredLeads = Lead::where("status", "=", $this->filterTerm)->get();
-        }
-        // then just filter on basis of serchTerm and update public leads
-        $this->leads = $statusFilteredLeads->filter(function ($lead) use ($searchTerm) {
-            return stripos($lead->name, $searchTerm) !== false ||
-                stripos($lead->email, $searchTerm) !== false ||
-                stripos($lead->message, $searchTerm) !== false;
-        });
-    }
-    #[On('filterUpdated')]
-    public function addFilteredLeads($filterTerm)
-    {
-        $this->filterTerm = $filterTerm;
-        if($filterTerm == "all"){
-            $this->leads = Lead::all();
-        }else{
-            $this->leads = Lead::where("status", "=", $filterTerm)->get();
-        }
-    }
+
     public function render()
     {
-        if($this->leads==null){
-            $this->leads = Lead::all();
-        }
-        return view('livewire.lead-manager');
+        return view('livewire.lead-manager')->layout('components.layouts.app');
     }
     public function resetInputFields(){
         $this->name = '';
@@ -69,53 +40,25 @@ class LeadManager extends Component
     }
     public function store()
     {
-        $this->validate();
-        //creation on DB
-        Lead::create([
-        'name' => $this->name,
-        'email' => $this->email,
-        'phone' => $this->phone,
-        'message'=> $this->message,
-        'status' => $this->status ,
-        ]);
-        session()->flash('message','Lead Created Successfully.');
-        $this->resetInputFields();
-        $this->leads = null;
-    }
-    public function edit($id)
-    {
-        $lead = Lead::findOrFail($id);
-        $this->lead_id = $id;
-        $this->name = $lead->name;    
-        $this->email = $lead->email;    
-        $this->phone = $lead->phone;    
-        $this->message = $lead->message;    
-        $this->status = $lead->status;   
-        
-        $this->updateMode = true;
-    }
-    public function update()
-    {
-        $this->validate();
-        if($this->lead_id){
-            $lead = Lead::findOrFail($this->lead_id);
-            // updation on DB
-            $lead->update([
+        try {
+            $this->validate();
+            //creation on DB
+            Lead::create([
                 'name' => $this->name,
                 'email' => $this->email,
-                'phone' => $this->phone,
+                'phne' => $this->phone,
                 'message' => $this->message,
-                'status' => $this->status ,
+                'status' => $this->status,
             ]);
-            session()->flash('message', 'Lead Updated Successfully.');
+            session()->flash('message', 'Lead Created Successfully.');
             $this->resetInputFields();
-            $this->updateMode = false;
-            $this->leads = null;
+        } catch (ValidationException $e) {
+            session()->flash('error', 'Provide details in correct format!');
+        } catch (Exception $e) {
+            session()->flash('error', 'Error Occured on Server, try again later.');
         }
     }
-    public function delete($id){
-        Lead::find($id)->delete();
-        session()->flash('message','Lead Deleted Successfully.');
-        $this->leads = null;
+    public function leadsList(){
+        return $this->redirectRoute('leads-list');
     }
 }

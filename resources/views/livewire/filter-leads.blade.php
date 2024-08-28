@@ -1,5 +1,5 @@
 <div class="filter-box">
-    <label for="fiter">Filter Status:</label>
+    <label for="fiter">FilterStatus:</label>
     <select wire:model.live="filterTerm" id="status" class="form-control">
         <option value="all">All Leads</option>
         <option value="new">New</option>
