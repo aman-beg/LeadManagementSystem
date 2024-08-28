@@ -1,66 +1,288 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1>Lead Manager Application</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p>The <strong>Lead Manager</strong> is a web application built with <a href="https://laravel.com/" target="_blank">Laravel</a> and <a href="https://laravel-livewire.com/" target="_blank">Livewire</a> that allows users to efficiently manage leads by creating, updating, viewing, and deleting lead information. The application utilizes real-time validation and dynamic user interfaces for a seamless user experience.</p>
 
-## About Laravel
+<hr>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>Table of Contents</h2>
+<ol>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#technologies-used">Technologies Used</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ol>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<hr>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<h2 id="features">1. Features</h2>
 
-## Learning Laravel
+<ul>
+    <li><strong>Create Leads:</strong> Add new leads with details such as name, email, phone, message, and status.</li>
+    <li><strong>Read Leads:</strong> View a list of all leads with their respective information.</li>
+    <li><strong>Update Leads:</strong> Edit existing lead information seamlessly.</li>
+    <li><strong>Delete Leads:</strong> Remove leads that are no longer needed.</li>
+    <li><strong>Real-Time Validation:</strong> Form inputs are validated in real-time, providing instant feedback to users.</li>
+    <li><strong>Responsive Design:</strong> The application is responsive and works well on various devices and screen sizes.</li>
+    <li><strong>User-Friendly Interface:</strong> Clean and intuitive UI for easy navigation and usage.</li>
+</ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<hr>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h2 id="technologies-used">2. Technologies Used</h2>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<ul>
+    <li><a href="https://laravel.com/" target="_blank">Laravel 10.x</a></li>
+    <li><a href="https://laravel-livewire.com/" target="_blank">Livewire 3.5</a></li>
+    <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap 5.x</a></li>
+    <li><a href="https://www.mysql.com/" target="_blank">MySQL</a></li>
+    <li><a href="https://www.php.net/" target="_blank">PHP 8.1</a></li>
+    <li><a href="https://composer.org/" target="_blank">Composer</a></li>
+    <li><a href="https://nodejs.org/" target="_blank">Node.js & NPM</a> (for frontend dependencies and build tools)</li>
+</ul>
 
-## Laravel Sponsors
+<hr>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h2 id="requirements">3. Requirements</h2>
 
-### Premium Partners
+<ul>
+    <li>PHP >= 8.1</li>
+    <li>Composer</li>
+    <li>MySQL or any other supported database</li>
+    <li>Node.js and NPM</li>
+    <li>Web Server (e.g., Apache, Nginx, or Laravel's built-in server)</li>
+    <li>Git</li>
+</ul>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+<hr>
 
-## Contributing
+<h2 id="installation">4. Installation</h2>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p>Follow these steps to set up and run the Lead Manager application on your local machine:</p>
 
-## Code of Conduct
+<h3>4.1. Clone the Repository</h3>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<pre>
+<code>git clone https://github.com/yourusername/lead-manager.git</code>
+</pre>
 
-## Security Vulnerabilities
+<pre>
+<code>cd lead-manager</code>
+</pre>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<h3>4.2. Install Dependencies</h3>
 
-## License
+<p><strong>Composer Dependencies:</strong></p>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<pre>
+<code>composer install</code>
+</pre>
+
+<p><strong>NPM Dependencies:</strong></p>
+
+<pre>
+<code>npm install</code>
+</pre>
+
+<h3>4.3. Environment Configuration</h3>
+
+<p>Copy the example environment file and configure the application:</p>
+
+<pre>
+<code>cp .env.example .env</code>
+</pre>
+
+<p>Generate application key:</p>
+
+<pre>
+<code>php artisan key:generate</code>
+</pre>
+
+<p><strong>Edit the <code>.env</code> file and update the following settings:</strong></p>
+
+<pre>
+<code>
+APP_NAME="Lead Manager"
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=lead_manager
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+</code>
+</pre>
+
+<h3>4.4. Database Setup</h3>
+
+<p>Create a new database for the application:</p>
+
+<pre>
+<code>mysql -u your_database_username -p
+CREATE DATABASE lead_manager;
+EXIT;
+</code>
+</pre>
+
+<p>Run database migrations:</p>
+
+<pre>
+<code>php artisan migrate</code>
+</pre>
+
+<h3>4.5. Compile Assets</h3>
+
+<p>Compile the frontend assets using Laravel Mix:</p>
+
+<pre>
+<code>npm run dev</code>
+</pre>
+
+<p>For production build:</p>
+
+<pre>
+<code>npm run build</code>
+</pre>
+
+<h3>4.6. Start the Development Server</h3>
+
+<pre>
+<code>php artisan serve</code>
+</pre>
+
+<p>The application will be accessible at <a href="http://localhost:8000" target="_blank">http://localhost:8000</a></p>
+
+<hr>
+
+<h2 id="usage">5. Usage</h2>
+
+<p>Once the application is up and running, you can perform the following actions:</p>
+
+<h3>5.1. Creating a New Lead</h3>
+
+<ol>
+    <li>Navigate to the "Create Lead" section.</li>
+    <li>Fill in the lead details:
+        <ul>
+            <li><strong>Name:</strong> Full name of the lead.</li>
+            <li><strong>Email:</strong> Email address (optional).</li>
+            <li><strong>Phone:</strong> Contact number.</li>
+            <li><strong>Message:</strong> Any additional information (optional).</li>
+            <li><strong>Status:</strong> Current status of the lead (e.g., New, Contacted, In Progress, Converted, Closed).</li>
+        </ul>
+    </li>
+    <li>Real-time validation will provide immediate feedback on input fields.</li>
+    <li>Click the "Create Lead" button to save the lead.</li>
+    <li>Upon successful creation, the lead will appear in the leads list.</li>
+</ol>
+
+<h3>5.2. Viewing Leads</h3>
+
+<ol>
+    <li>All existing leads are displayed in a tabular format on the main page.</li>
+    <li>You can view details such as Name, Email, Phone, Message, and Status.</li>
+</ol>
+
+<h3>5.3. Updating a Lead</h3>
+
+<ol>
+    <li>In the leads list, locate the lead you wish to update.</li>
+    <li>Click the "Edit" button corresponding to that lead.</li>
+    <li>The lead details will populate the form fields for editing.</li>
+    <li>Modify the necessary information. Real-time validation will assist during editing.</li>
+    <li>Click the "Update Lead" button to save changes.</li>
+    <li>The leads list will refresh to display the updated information.</li>
+</ol>
+
+<h3>5.4. Deleting a Lead</h3>
+
+<ol>
+    <li>In the leads list, locate the lead you wish to delete.</li>
+    <li>Click the "Delete" button corresponding to that lead.</li>
+    <li>A confirmation prompt may appear to prevent accidental deletion.</li>
+    <li>Confirm the deletion, and the lead will be removed from the list.</li>
+</ol>
+
+<h3>5.5. Real-Time Validation</h3>
+
+<ul>
+    <li>All form inputs are validated as you type, ensuring data integrity and providing immediate feedback.</li>
+    <li>Validation rules include:
+        <ul>
+            <li><strong>Name:</strong> Required.</li>
+            <li><strong>Email:</strong> Must be a valid email format (optional).</li>
+            <li><strong>Phone:</strong> Required.</li>
+            <li><strong>Status:</strong> Must be one of the predefined statuses.</li>
+        </ul>
+    </li>
+    <li>Error messages are displayed directly below the respective input fields.</li>
+</ul>
+
+<hr>
+
+<h2 id="project-structure">6. Project Structure</h2>
+
+<p>An overview of the key files and directories in the project:</p>
+
+<pre>
+<code>
+├── app
+│   ├── Http
+│   │   ├── Controllers
+│   │   │   └── LeadController.php
+│   │   └── Livewire
+│   │       └── LeadManager.php
+│   ├── Models
+│   │   └── Lead.php
+│   └── ...
+├── resources
+│   ├── views
+│   │   ├── livewire
+│   │   │   └── lead-manager.blade.php
+│   │   └── layouts
+│   │       └── app.blade.php
+│   └── ...
+├── database
+│   ├── migrations
+│   │   └── create_leads_table.php
+│   └── ...
+├── routes
+│   └── web.php
+├── public
+│   └── ...
+├── package.json
+├── composer.json
+├── webpack.mix.js
+└── ...
+</code>
+</pre>
+
+<h3>Key Components:</h3>
+
+<ul>
+    <li><strong>LeadManager.php:</strong> Livewire component handling the business logic for managing leads.</li>
+    <li><strong>lead-manager.blade.php:</strong> Blade template for rendering the leads management interface.</li>
+    <li><strong>Lead.php:</strong> Eloquent model representing the leads data.</li>
+    <li><strong>create_leads_table.php:</strong> Migration file for creating the leads table in the database.</li>
+    <li><strong>app.blade.php:</strong> Main layout file for the application.</li>
+    <li><strong>web.php:</strong> Defines the web routes for the application.</li>
+</ul>
+
+<hr>
+
+<h2 id="contact">7. Contact</h2>
+
+<p>For any inquiries or support, feel free to contact:</p>
+
+<ul>
+    <li><strong>Name:</strong> Aman Beg</li>
+    <li><strong>Email:</strong> <a href="mailto:am2835112@gmail.com">am2835112@gmail.com</a></li>
+    <li><strong>GitHub:</strong> <a href="https://github.com/aman-beg" target="_blank">github.com/aman-beg</a></li>
+</ul>
+
+<hr>
+
+<p>Thank you for using the Lead Manager Application! We hope it enhances your lead management process.</p>
