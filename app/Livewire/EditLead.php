@@ -3,19 +3,49 @@
 namespace App\Livewire;
 
 use App\Models\Lead;
+use DB;
 use Exception;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class EditLead extends Component
 {
     public $lead,$name,$email,$phone,$message,$status,$leadId;
+    public $country,$state,$addLine1;
+    public $countries = ['India'];
+    public $states = ['Delhi','Uttar Pradesh','Maharashtra','Punjab','Telangana','Tamilnadu'];
+        
     protected $rules = [
-        'name' => 'required|regex:/^[\pL\s\-]+$/u|max:255',
+        'name' => 'required|regex:/^[\pL\s\-.]+$/u|max:255',
         'email' => 'nullable|email|max:255',
         'phone' => 'required|regex:/^(\+?\d{1,3})?(\s?\d+){1,19}$/',
         'message' => 'nullable',
         'status' => 'required|in:new,contacted,in progress,converted,closed',
     ];
+    public function fetchAddLine1($address)
+    {
+        $sArr = explode(',', $address);
+        $s = '';
+        for ($i=0; $i < count($sArr) - 2; $i++) { 
+            if ($i==count($sArr)-3){
+                $s = $s . $sArr[$i] ;
+            }
+            else{
+                $s = $s . $sArr[$i] . ', ';
+            }
+        }
+        // dd($s);
+        return $s;
+    }
+    public function fetchState($address)
+    {
+        $sArr = explode(', ',$address);
+        $s = $sArr[count($sArr)-2];
+        return $s;
+    }
+    public function fetchCountry($address){
+        return Str::afterLast($address, ', ');
+    }
     // for real time search
     public function updated($properName)   //lifecycle hook automatically call when property updates from wire:model.live
     {
@@ -28,6 +58,9 @@ class EditLead extends Component
         $this->name = $lead->name;
         $this->email = $lead->email;
         $this->phone = $lead->phone;
+        $this->addLine1 = $this->fetchAddLine1($lead->address);
+        $this->state = $this->fetchState($lead->address);
+        $this->country = $this->fetchCountry($lead->address);
         $this->message = $lead->message;
         $this->status = $lead->status;
     }
@@ -45,25 +78,29 @@ class EditLead extends Component
     }
     public function update($id)
     {
-        try{
-            $this->validate();
-            $lead = Lead::findOrFail(100);
-            if ($lead) {
-                // updation on DB
-                $lead->update([
-                    'name' => $this->name,
-                    'email' => $this->email,
-                    'phone' => $this->phone,
-                    'message' => $this->message,
-                    'status' => $this->status,
-                ]);
-                session()->flash('message', 'Lead Updated Successfully.');
-                $this->resetInputFields();
-                $this->redirectRoute('leads-list');
+        DB::transaction(function () use ($id){
+            try{
+                $this->validate();
+                $lead = Lead::findOrFail($id);
+                if ($lead) {
+                    // updation on DB
+                    $lead->update([
+                        'name' => $this->name,
+                        'email' => $this->email,
+                        'phone' => $this->phone,
+                        'address' => $this->addLine1 .', '. $this->state . ', ' . $this->country,
+                        'message' => $this->message,
+                        'status' => $this->status,
+                    ]);
+                    session()->flash('message', 'Lead Updated Successfully.');
+                    $this->resetInputFields();
+                    $this->redirectRoute('leads-list');
+                }
+            } catch (Exception $e) {
+                session()->flash('error', 'Editing Exception occured!');
             }
-        } catch(Exception $e){
-            session()->flash('error','Editing Exception occured!');
-        }
+        });
+        
     }
     public function leadsList()
     {

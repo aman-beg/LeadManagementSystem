@@ -26,7 +26,7 @@ class LeadList extends Component
                 ->orWhere('email', 'LIKE', $this->searchTerm)
                 ->orWhere('message', 'LIKE', $this->searchTerm)
                 ->orWhere('phone', 'LIKE', $this->searchTerm)
-                ->paginate(6);
+                ->paginate(10);
         } else {
             // Search in filtered leads by status
             $this->leads = Lead::where('status', $this->filterTerm)
@@ -36,7 +36,7 @@ class LeadList extends Component
                         ->orWhere('message', 'LIKE', $this->searchTerm)
                         ->orWhere('phone', 'LIKE', $this->searchTerm);
                 })
-                ->paginate(6);
+                ->paginate(10);
         }
     }
 
@@ -46,18 +46,18 @@ class LeadList extends Component
         $this->resetPage();
         $this->filterTerm = $filterTerm;
         if ($filterTerm == "all") {
-            $this->leads = Lead::paginate(6);
+            $this->leads = Lead::paginate(10);
         } else {
-            $this->leads = Lead::where("status", "=", $filterTerm)->paginate(6);
+            $this->leads = Lead::where("status", "=", $filterTerm)->paginate(10);
         }
     }
     public function render()
     {
         try {
             if (empty($this->leads) && (empty($this->filterTerm) || $this->filterTerm == 'all') && empty($this->searchTerm)) {
-                $this->leads = Lead::paginate(6);
+                $this->leads = Lead::paginate(10);
             } else if (empty($this->leads) && !(empty($this->filterTerm) || $this->filterTerm == 'all') && empty($this->searchTerm)) {
-                $this->leads = Lead::where("status", "=", $this->filterTerm)->paginate(6);
+                $this->leads = Lead::where("status", "=", $this->filterTerm)->paginate(10);
             }
         } catch (\Exception $e) {
             abort(500);

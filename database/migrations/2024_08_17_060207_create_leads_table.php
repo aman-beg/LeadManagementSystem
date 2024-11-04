@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->string('phone');
+            $table->string('address');
             $table->text('message')->nullable();
             $table->enum('status',['new','contacted','in progress','converted','closed'])->default('new');
             $table->timestamps();

@@ -22,10 +22,20 @@ class LeadFactory extends Factory
 
         // Generate a phone number with a varying length between 7 to 10 digits
         $phoneNumber = $this->faker->numerify($countryCode . $this->faker->randomNumber(7, true));
+
+        //states and countries
+        $countries = ['India'];
+        $states = ['Delhi', 'Uttar Pradesh', 'Maharashtra', 'Punjab', 'Telangana', 'Tamilnadu'];
+        $blocks = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
+        //generate address
+        $address = $this->faker->randomElement($blocks) .'-'. $this->faker->numberBetween(101,798) . ', ' . $this->faker->randomElement($states) . ', ' . $this->faker->randomElement($countries);
+
         return [
             'name' => $this->faker->name,
-            'email' => $this->faker->safeEmail,
+            'email' => $this->faker->boolean?$this->faker->safeEmail:null,
             'phone' => $phoneNumber,
+            'address' => $address,
             'message' => $this->faker->sentence,
             'status' => $this->faker->randomElement(['new', 'contacted', 'in progress', 'converted', 'closed']),
             'created_at' => now(),

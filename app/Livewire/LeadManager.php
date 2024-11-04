@@ -10,13 +10,20 @@ use App\Models\Lead;
 class LeadManager extends Component
 {
     public $name,$email,$phone,$message,$status,$lead_id,$filterTerm,$lead;
+    public $countries = ['India'];
+    public $states = ['Delhi', 'Uttar Pradesh', 'Maharashtra', 'Punjab', 'Telangana', 'Tamilnadu'];
+
+    public $addLine1,$state,$country;
     protected $rules = [
-        'name'=>'required|alpha|max:255',
+        'name' => 'required|regex:/^[\pL\s\-.]+$/u|max:255',
         'email'=>'nullable|email|max:255',
         'phone'=>'required|regex:/^(\+?\d{1,3})?(\s?\d+){1,19}$/',
         'message'=>'nullable',
         'status'=>'required|in:new,contacted,in progress,converted,closed',
     ];
+    public function getAddress(){
+        return $this->addLine1 . ', ' . $this->state . ', ' . $this->country;
+    }
     // for real time search
     public function updated($properName)   //lifecycle hook automatically call when property updates from wire:model.live
     {
@@ -35,6 +42,9 @@ class LeadManager extends Component
         $this->name = '';
         $this->email = '';
         $this->phone = '';
+        $this->addLine1 = '';
+        $this->state = '';
+        $this->country ='';
         $this->message = '';
         $this->status = 'new';
     }
@@ -46,7 +56,8 @@ class LeadManager extends Component
             Lead::create([
                 'name' => $this->name,
                 'email' => $this->email,
-                'phne' => $this->phone,
+                'phone' => $this->phone,
+                'address' =>$this->getAddress(),
                 'message' => $this->message,
                 'status' => $this->status,
             ]);
